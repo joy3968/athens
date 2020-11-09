@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}재직중 선생님{% endblock %}
+{% block content %}
+
+
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<ul class="container pd-0">
+					<div class="page-header">
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<div class="title">
+									<h4>재직중인 선생님</h4>
+								</div>
+								<nav aria-label="breadcrumb" role="navigation">
+									<ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="index.html">선생님 관리</a></li>
+										<li class="breadcrumb-item active" aria-current="page">재직중인 선생님</li>
+									</ol>
+								</nav>
+							</div>
+						</div>
+					</div>
+
+
+
+					<ul class="contact-directory-list">
+						<ul class="row">
+
+					{% if teacher_list %}
+					{% for teacher in teacher_list %}
+					{% if teacher.t_state %}
+							<li class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+								<div class="contact-directory-box">
+									<div class="contact-dire-info text-center">
+										<div class="contact-avatar">
+											<span>
+												<img src="../static/vendors/images/blue.jpg" alt="">
+											</span>
+										</div>
+										<div class="contact-name">
+											<h4>{{ teacher.t_name }} <small>선생님</small></h4>
+											<p>수학</p>
+											<div class="work text-success">중등부</div>
+										</div>
+										<div class="contact-skill">
+											<span class="badge badge-pill">수학</span>
+											<span class="badge badge-pill">1:1</span>
+											<span class="badge badge-pill">관리</span>
+										</div>
+<!--										<div class="profile-sort-desc">-->
+<!--											Lorem ipsum dolor sit amet, consectetur adipisicing magna aliqua.-->
+<!--										</div>-->
+									</div>
+									<div class="view-contact">
+										<a href="#", onclick='window.open("../admin/teacher_detail/{{ teacher.t_no }}", "PopupWin", "width=700,height=700,left=670,top=150, location=no, resizable=no");' />프로필 보기</a>
+									</div>
+								</div>
+							</li>
+					{% endif %}
+            		{% endfor %}
+            		{% endif %}
+
+						</ul>
+					</ul>
+
+
+
+			</div>
+				<!-- js -->
+
+
+
+
+	<script src="../static/plus.js"></script>
+	<script src="../static/vendors/scripts/core.js"></script>
+	<script src="../static/vendors/scripts/script.min.js"></script>
+	<script src="../static/vendors/scripts/process.js"></script>
+	<script src="../static/vendors/scripts/layout-settings.js"></script>
+	<script src="../static/src/plugins/apexcharts/apexcharts.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="../static/vendors/scripts/dashboard.js"></script>
+			{% endblock %}

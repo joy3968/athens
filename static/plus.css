@@ -1,0 +1,68 @@
+* {margin: 0px;
+            padding: 0px;}
+
+.top-123
+{ display: block;
+  width : 15%;
+  float: left;
+}
+
+.root
+{
+    width: 670px;
+    height: 670px;
+
+    margin: 10px 10px 10px 10px;
+    border-style : groove;
+}
+
+.wrap-top
+{
+    width : 98%;
+    height : 70%;
+    margin : 1%;
+    padding : 1%;
+    border-style : groove;
+}
+
+.wrap-bottom
+{
+    width : 98%;
+    height : 27%;
+    margin : 1%;
+    padding : 1%;
+    border-style : groove;
+}
+
+.wrap-last
+{
+    width : 98%;
+    height : 6%;
+    margin : 1%;
+    padding : 1%;
+    border-style : groove;
+    background-color : red;
+}
+
+.teacher_info
+{
+    width :300px;
+    height : 200px;
+
+}
+
+.btn-danger
+{
+    width : 60px;
+    height : 40px;
+}
+
+.font_a
+{
+    font-size : 14px;
+}
+
+.smalling
+{
+    font-size : 12px;
+}
