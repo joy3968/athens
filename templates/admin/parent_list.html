@@ -52,12 +52,16 @@
 							<tbody>
 								{% if customer_list %}
 								{% for customer in customer_list %}
-								{% if customer.c_code_valid %}
+								{% if customer.c_code_valid%}
+
+
 								<tr>
 									<td class="table-plus">{{ customer.c_name }}</td>
 									<td>{{ customer.c_id }}</td>
 									<td>{{ customer.c_phone }}</td>
-									<td>{{ customer.c_code }}</td>
+									<td>{% for student in customer_list %}{% if customer.c_code_valid == student.c_code %}{{ student.c_name }}
+									{% endif %}{% endfor %}
+									</td>
 									<td>{{ customer.c_join }}</td>
 									<td>
 										<div class="dropdown">

@@ -89,7 +89,12 @@ def lecture_create(request):
 # 학부모 목록
 def parents_list(request):
     customer_list = customer_tbl.objects.order_by('-c_join')
+
+    # customer_tbl.objects.get(pk = )
+
     context = {'customer_list': customer_list}
+
+
 
     return render(request, 'admin/parent_list.html', context)
 
