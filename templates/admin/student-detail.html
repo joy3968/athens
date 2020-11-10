@@ -5,8 +5,7 @@
     <title></title>
     {% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'plus.css' %}">
-<!--	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">-->
-
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- jquery slim 지우고 minified 추가 -->
@@ -33,6 +32,35 @@
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+<style>
+.root
+{
+    width: 670px;
+    height: 100%;
+
+    margin: 10px 10px 10px 10px;
+    border-style : groove;
+}
+
+    .student_top
+{
+    min-width : 98%;
+    min-height : 35%;
+    margin : 1%;
+    padding : 1%;
+    border-style : groove;
+}
+
+    .student_bottom
+{
+    min-width : 98%;
+    min-height : 45%;
+    margin : 1%;
+    padding : 1%;
+    border-style : groove;
+}
+</style>
+
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -43,57 +71,41 @@
 </head>
 <body>
     <div class="root">
-        <div class="wrap-top">
+        <div class="student_top">
             <div class="alert alert-primary" role="alert">학생 정보</div>
                 <div class="row">
-                    <div class ="col-3">
-                        <p>
-                            <img src="../static/vendors/images/blue.jpg" alt="">
-                        </p>
-                        <p>
-                            <button type="button" class="btn btn-danger"><span class="font_a">퇴사</span></button>
-                            <button type="button" class="btn btn-primary"><span class="font_a">저장</span></button>
-                        </p>
-                    </div>
-                    <div class="col-7">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">선생님 특이사항</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                         </div>
-                    </div>
 
                 </div>
-            <div class="container">
+            <div class="contain">
             <div class="row">
                 <div class="col">
                     <table class="table smalling">
                         <tr>
                             <th>이름</th>
-                            <td style="font-size : 11px">공민우</td>
+                            <td style="font-size : 11px">{{ customer_info.c_name }}</td>
                             <th>휴대폰 번호</th>
-                            <td style="font-size : 11px">010-6656-3490</td>
+                            <td style="font-size : 11px">{{ customer_info.c_phone }}</td>
                         </tr>
                         <tr>
-                            <th>이메일</th>
-                            <td style="font-size : 11px">sayo1z2@naver.com</td>
+                            <th>아이디</th>
+                            <td style="font-size : 11px">{{ customer_info.c_id }}</td>
                             <th>생년월일</th>
-                            <td style="font-size : 11px">911005</td>
+                            <td style="font-size : 11px">{{ customer_info.c_birth }}</td>
                         </tr>
                         <tr class="smalling">
                             <th>성별</th>
-                            <td style="font-size : 11px">남</td>
-                            <th>입사일자</th>
-                            <td style="font-size : 12px">2020-10-05</td>
+                            <td style="font-size : 11px">{{ customer_info.c_gender }}</td>
+                            <th>등록일자</th>
+                            <td style="font-size : 11px">{{ customer_info.c_join }}</td>
                         </tr>
                     </table>
                 </div>
             </div>
             </div>
-
             </div>
-        <div class="wrap-bottom">
+        <div class="student_bottom">
             <div class="alert alert-primary" role="alert">신청 강의 현황</div>
-            <div class = "container">
+            <div class = "ml-3 mr-3">
             <div class="row">
                  <table class="table table-striped table-hover">
                         <tr class="smalling">
@@ -110,6 +122,14 @@
                             <td style="font-size : 11px">14명</td>
                             <td style="font-size : 11px">20-01-01 ~ 20-04-30</td>
                         </tr>
+                     <tr class="smalling">
+                            <td style="font-size : 11px">수학</td>
+                            <td style="font-size : 11px">중등부</td>
+                            <td style="font-size : 11px">2학년</td>
+                            <td style="font-size : 11px">14명</td>
+                            <td style="font-size : 11px">20-01-01 ~ 20-04-30</td>
+                        </tr>
+
                     </table>
             </div>
                 </div>

@@ -5,7 +5,7 @@ import bcrypt
 password = 'pass1234'
 b = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 #
-print(b)
+# print(b)
 
 
 import random

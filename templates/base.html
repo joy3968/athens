@@ -19,9 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="../static/vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="../static/vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="../static/vendors/images/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'vendors/images/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'vendors/images/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'vendors/images/favicon-16x16.png' %}">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,11 +29,11 @@
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/core.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/dataTables.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/responsive.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/style.css' %}">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -119,42 +119,42 @@
 							<ul>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/photo2.jpg" alt="">
+										<img src="{% static 'vendors/images/photo2.jpg' %}" alt="">
 										<h3>John Doe</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/photo2.jpg" alt="">
+										<img src="{% static 'vendors/images/photo2.jpg' %}" alt="">
 										<h3>Lea R. Frith</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/photo2.jpg" alt="">
+										<img src="{% static 'vendors/images/photo2.jpg' %}" alt="">
 										<h3>Erik L. Richards</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/photo3.jpg" alt="">
+										<img src="{% static 'vendors/images/photo3.jpg' %}" alt="">
 										<h3>John Doe</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/photo4.jpg" alt="">
+										<img src="{% static 'vendors/images/photo4.jpg' %}" alt="">
 										<h3>Renee I. Hansen</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
 								</li>
 								<li>
 									<a href="#">
-										<img src="../static/vendors/images/img.jpg" alt="">
+										<img src="{% static 'vendors/images/img.jpg' %}" alt="">
 										<h3>Vicki M. Coleman</h3>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
 									</a>
@@ -168,7 +168,7 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="../static/vendors/images/photo2.jpg" alt="">
+							<img src="{% static 'vendors/images/photo2.jpg' %}" alt="">
 						</span>
 						<span class="user-name">Ross C. Lopez</span>
 					</a>
@@ -264,8 +264,8 @@
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="../admin">
-				<img src="../static/vendors/images/top_logo.png" alt="" class="dark-logo pt-3">
-				<img src="../static/vendors/images/top_logo.png" alt="" class="light-logo pt-3">
+				<img src="{% static 'vendors/images/top_logo.png' %}" alt="" class="dark-logo pt-3 ml-3">
+				<img src="{% static 'vendors/images/top_logo.png' %} alt="" class="light-logo pt-3 ml-3">
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -373,10 +373,9 @@
 						<ul class="submenu">
 							<li><a href="400.html">질문 답변 등록</a></li>
 							<li><a href="403.html">목록 보기</a></li>
-<!--
+<!--&lt;!&ndash;-->
 						</ul>
 					</li>
-
 					<li class="dropdown">
 						<a href="javascript:;" class="dropdown-toggle">
 							<span class="micon dw dw-copy"></span><span class="mtext">통계</span>
@@ -466,7 +465,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-2">
-							<img src="../static/vendors/images/top_logo.png">
+							<img src="{% static 'vendors/images/top_logo.png' %}">
 						</div>
 						<div class="col-9 pt-4">
 						<p>(주)아테네 영/수 학원 | 대표 공민우 | 사업자등록번호 001-01-00001 |</p>

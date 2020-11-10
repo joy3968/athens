@@ -1,0 +1,14 @@
+{% extends 'teacherbase.html' %}
+
+{% block content %}
+<div style="margin-top:50px; margin-left:200px">
+  <div class="card border-dark mb-3" style="width: 100%;">
+    <div class="card-header"><h2>{{content.notice_title}}</h2></div>
+    <div class="card-body">
+      <h6 class="card-title">{{content.notice_date}}</h6>
+      <h5 class="card-text">{{content.notice_content}}</h5>
+    </div>
+  </div>
+  <button type="button" class="btn btn-outline-secondary" style="float: right;" onclick="location.href='/'">목록</button>
+</div>
+{% endblock %}

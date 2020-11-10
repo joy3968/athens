@@ -1,0 +1,81 @@
+body {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        div {
+            overflow: hidden;
+        }
+        img {
+            display: block;
+        }
+        #wrap {
+            width: 100%;
+            height: 100%;
+
+        }
+
+
+        .top-logo{
+            width:100%;
+            height: 25%;
+        }
+
+        div.logo {
+
+        border: 1px solid black;
+        width: 50%;
+        height: 25%;
+        margin-left: 25%;
+
+        }
+
+        #content {
+        width: 100%;
+        height: 65%;
+        min-width: 1050px;
+        min-height: 650px;
+        }
+
+        div.sign {
+            width: 25;
+            height: 5%;
+            padding: 1%;
+
+
+            position: relative;
+        }
+
+        div.join_btn {
+            float: left;
+            padding: 1px;
+            width: 20%;
+            height: 7%;
+            position: relative; left: 20%;
+            }
+
+        div.border {
+            border: solid black;
+            width: 75%;
+            height: 75%;
+            position: relative; left: 14%;
+            padding:10%;
+        }
+
+        div.foot_border {
+            border: solid black;
+            width: 75%;
+            height: 75%;
+            position: relative; left: 14%;
+
+        }
+
+        #footer {
+            width: 100%;
+            height: 10%;
+            background-color: yellowgreen;
+
+        }
+
+

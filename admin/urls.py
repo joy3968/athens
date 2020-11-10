@@ -11,7 +11,7 @@ urlpatterns = [
     path('teacher_detail/<int:teacher_tbl_t_no>', views.teacher_detail, name='teacher_detail'),
     path('student.in', views.student_in, name='studentin'),
     path('student.out', views.student_out, name='studentout'),
-    path('student_detail', views.student_detail, name='student_detail'),
+    path('student_detail/<int:c_no>', views.student_detail, name='student_detail'),
     path('lecture', views.lecture_create, name='lecture_create'),
     path('parents_list', views.parents_list, name='parents_list'),
 

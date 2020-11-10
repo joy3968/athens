@@ -52,7 +52,7 @@
 							<tbody>
 							{% if teacher_list %}
 							{% for teacher in teacher_list %}
-							{% if teacher.t_state %}
+							{% if not teacher.t_state %}
 								<tr>
 									<td class="table-plus">{{ teacher.t_name }}</td>
 									<td>{{ teacher.t_gender }}</td>

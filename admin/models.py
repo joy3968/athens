@@ -62,7 +62,7 @@ class lecture_tbl(models.Model):
     l_dept = models.CharField(max_length=20, choices = dept_choice)
 
     # 학년 Choice
-    class_choice = (('1', '1학년'), ('2' ,'2학년'))
+    class_choice = (('1', '1학년'), ('2' ,'2학년'), ('3' ,'3학년'))
     l_class = models.CharField(max_length=10, choices = class_choice)
     # 선택 Choice
     subject_choice = (('수학','수학'), ('영어', '영어'))
@@ -150,8 +150,3 @@ class consult_tbl(models.Model):
 #     user = models.OneToOneField(customer_tbl.AUTH_USER_MODEL) # 현 계정의 사용자를 가져올 수 있음.
 #     nickname = models.CharField(max_length=64)
 #     profile_photo = models.ImageField(blank=True)
-
-
-
-# Create your models here.
-

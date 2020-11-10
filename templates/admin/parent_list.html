@@ -41,12 +41,11 @@
 						<table class="data-table table stripe hover nowrap">
 							<thead>
 								<tr>
-									<th class="table-plus datatable-nosort">이름</th>
-									<th>아이디</th>
-									<th>휴대폰 번호</th>
-									<th>자녀 이름</th>
-									<th>가입일</th>
-									<th class="datatable-nosort">상세 정보</th>
+									<th class="table-plus datatable-nosort text-center">이름</th>
+									<th class="text-center">아이디</th>
+									<th class="text-center">휴대폰 번호</th>
+									<th class="text-center">자녀 이름</th>
+									<th class="text-center">가입일</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -56,25 +55,26 @@
 
 
 								<tr>
-									<td class="table-plus">{{ customer.c_name }}</td>
-									<td>{{ customer.c_id }}</td>
-									<td>{{ customer.c_phone }}</td>
-									<td>{% for student in customer_list %}{% if customer.c_code_valid == student.c_code %}{{ student.c_name }}
-									{% endif %}{% endfor %}
-									</td>
-									<td>{{ customer.c_join }}</td>
-									<td>
-										<div class="dropdown">
-											<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-												<i class="dw dw-more"></i>
+									<td class="table-plus text-center">{{ customer.c_name }}</td>
+									<td class="text-center">{{ customer.c_id }}</td>
+									<td class="text-center">{{ customer.c_phone }}</td>
+									<td class="text-center">{% for student in customer_list %}
+										{% if customer.c_code_valid == student.c_code %}
+										<span class="dropdown">
+											<a class="btn btn-link p-0 font-12 line-height-1 no-arrow dropdown-toggle text-center" href="#" role="button" data-toggle="dropdown">
+												{{ student.c_name }}
 											</a>
-											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="#">ID : {{ student.c_id }}</a>
+												<a class="dropdown-item" href="#">생년월일 : {{ student.c_birth }}</a>
+												<a class="dropdown-item text-center" href="#" onclick='window.open("../admin/student_detail/{{ student.c_no }}", "PopupWin", "width=700,height=700,left=670,top=150, location=no, resizable=no");'/>상세보기</a>
 											</div>
-										</div>
+										</span>
+										{% endif %}
+										{% endfor %}
 									</td>
+									<td class="text-center">{{ customer.c_join }}</td>
+
 								</tr>
 
 							{% endif %}

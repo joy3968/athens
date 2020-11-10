@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
 from django.utils import timezone
-from .forms import LectureForm
+from .forms import *
 
 # 메인 화면
 def index(request):
@@ -37,7 +37,8 @@ def teacher_detail(request, teacher_tbl_t_no):
     선생님 상세
     """
     teacher_info = teacher_tbl.objects.get(pk = teacher_tbl_t_no)
-    context = {'teacher_info' : teacher_info}
+    lecture_list = lecture_tbl.objects.order_by('-l_no')
+    context = {'teacher_info' : teacher_info, 'lecture_list' : lecture_list}
 
     return render(request, 'admin/teacher-detail.html', context)
 
@@ -57,8 +58,10 @@ def student_out(request):
     return render(request, 'admin/student-out.html', context)
 
 # 학생 상세
-def student_detail(request):
-    return render(request, 'admin/student-detail.html')
+def student_detail(request, c_no):
+    student_info = customer_tbl.objects.get(pk=c_no)
+    context = {'customer_info': student_info}
+    return render(request, 'admin/student-detail.html', context)
 
 # 강의 등록
 def lecture_create(request):
@@ -67,11 +70,24 @@ def lecture_create(request):
     """
     if request.method == 'POST':
         print(111,request.POST)
-        print(222,request.FILES['l_img'])
+        # print(222,request.FILES['l_img'])
 
-
+        form_teacher = LectureForm_teacher(request.POST)
         form = LectureForm(request.POST)
-        if form.is_valid():
+
+        if form_teacher.is_valid():
+
+            print(123,form_teacher.instance.t_no)
+            teacher_info = teacher_tbl.objects.get(t_name = form_teacher.instance.t_no)
+            form = LectureForm()
+            form_teacher = LectureForm_teacher(request.POST)
+            context = {'teacher_info' : teacher_info, 'form': form, 'form_teacher' : form_teacher}
+
+            return render(request, 'admin/lecture_form.html', context)
+
+
+
+        elif form.is_valid():
             lecture_tbl = form.save(commit=False)
             lecture_tbl.l_img = request.FILES['l_img']
             lecture_tbl.save()
@@ -80,16 +96,16 @@ def lecture_create(request):
 
     else:
         form = LectureForm()
+        form_teacher = LectureForm_teacher()
 
     teacher_list : teacher_tbl.objects.order_by(-'t_join')
-    context = {'form' : form}
+    context = {'form' : form, 'form_teacher' : form_teacher}
 
     return render(request, 'admin/lecture_form.html', context)
 
 # 학부모 목록
 def parents_list(request):
     customer_list = customer_tbl.objects.order_by('-c_join')
-
     # customer_tbl.objects.get(pk = )
 
     context = {'customer_list': customer_list}
@@ -97,5 +113,3 @@ def parents_list(request):
 
 
     return render(request, 'admin/parent_list.html', context)
-
-# Create your views here.

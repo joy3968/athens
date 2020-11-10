@@ -23,31 +23,82 @@
 				</div>
 
 
+
 				<div class = "row">
-					<div class="container">
-                <div class="col card-box mb-30">
-                    <div class="container pb-3">
-						<h5 class="my-3 border-bottom pt-3 pb-2">강의 등록</h5>
+					<div class="col container">
+                		<div class="col card-box mb-30">
+                    		<div class="container pb-3">
+								<h5 class="my-3 border-bottom pt-3 pb-2">강의 등록</h5>
 						<div class = "row">
 							<div class = "col">
+								<div class = "row">
+
+									<div class = "col-6 ml-3">
+									<form method="post" enctype="multipart/form-data" class="post-form my-3">
+											{% csrf_token %}
+											{{ form_teacher.as_p }}
+										</div>
+										<div class= "col mt-5">
+											<button type="submit" class="btn btn-primary">선생님 정보</button>
+										</div>
+									</form>
+								</div>
+
+								{% if teacher_info %}
+								<div class = "row">
+									<div class = "mr-5 ml-3">
+                          		  <img src="../../static/vendors/images/blue.jpg" alt="">
+									</div>
+									<div class = "col-9 mt-3">
+										<div class="container">
+											<table class="table smalling">
+								<tr>
+									<th style="font-size : 11px">이름</th>
+									<td style="font-size : 11px">{{ teacher_info.t_name }}</td>
+									<th style="font-size : 11px">휴대폰 번호</th>
+									<td style="font-size : 11px">{{ teacher_info.t_phone }}</td>
+								</tr>
+								<tr>
+									<th style="font-size : 11px">id(이메일)</th>
+									<td style="font-size : 11px">{{ teacher_info.t_id  }}</td>
+									<th style="font-size : 11px">생년월일</th>
+									<td style="font-size : 11px">{{ teacher_info.t_birth }}</td>
+								</tr>
+								<tr class="smalling">
+									<th style="font-size : 11px">성별</th>
+									<td style="font-size : 11px">{{ teacher_info.t_gender }}</td>
+									<th style="font-size : 11px">입사일자</th>
+									<td style="font-size : 12px">{{ teacher_info.t_join }}</td>
+								</tr>
+							</table>
+										</div>
+								</div>
+								{% endif %}
+							<div class="container">
                         <form method="post" enctype="multipart/form-data" class="post-form my-3">
 
                             {% csrf_token %}
                             {{ form.as_p }}
-							<input name="l_img" type="file">
+
+							<p>
+							<label>커리큘럼 이미지:</label>
+								<input name="l_img" type="file">
+							</p>
 							<div class="row pd-5 pt-2 pull-right">
                             <button type="submit" class="btn btn-primary">등록하기</button>
 							</div>
                         </form>
+								</div>
                     </div>
-
-						</div>
+							</div>
 					</div>
-                </div>
+                			</div>
+						</div>
 
-				</div>
-				</div>
-            </div>
+
+					</div>
+            	</div>
+
 
 	<script src="../static/vendors/scripts/core.js"></script>
 	<script src="../static/vendors/scripts/script.min.js"></script>
