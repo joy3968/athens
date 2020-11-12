@@ -61,7 +61,12 @@
 									<td>{{ customer.c_phone }}</td>
 									<td>{{ customer.c_join }}</td>
 									<td>
-										<a href="#", onclick='window.open("../admin/student_detail", "PopupWin", "width=700,height=700,left=670,top=150, location=no, resizable=no");'/>상세 {% if customer.c_state %} 재학생  {% else %} 퇴원생 {% endif %} <i class="icon-copy fi-plus"></i></a>
+										<div class="dropdown">
+											<form method="post" onsubmit="return confirm('{{ customer.c_name }} 학생을 재등록 처리 하시겠습니까?');">
+											{% csrf_token %}
+											<button id="test" value="{{ customer.c_no }}" name="c_no" type="submit" class="btn btn-success"><span class="font_a">재등록</span></button>
+											</form>
+										</div>
 									</td>
 								</tr>
 								{% endif %}

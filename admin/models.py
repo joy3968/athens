@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
 
 class customer_tbl(models.Model):
     c_no = models.AutoField(primary_key=True)
@@ -87,8 +90,11 @@ class notice_tbl(models.Model):
     notice_title = models.CharField(max_length=200)
     n_writer = models.CharField(max_length=20)
     notice_date = models.DateTimeField()
-    notice_target = models.CharField(max_length=20)
+    subject_choice = (('선생님', '선생님'), ('전체', '전체'))
+    notice_target = models.CharField(max_length=20, choices=subject_choice)
     notice_content = models.TextField()
+
+
 
 # 온라인자료 - 파일 컬럼 추가
 class online_tbl(models.Model):
@@ -142,11 +148,32 @@ class consult_tbl(models.Model):
     c_no = models.ForeignKey(customer_tbl, on_delete=models.CASCADE)
     t_no = models.ForeignKey(training_tbl, on_delete=models.CASCADE)
 
+class userpage_tbl(models.Model):
+    page_img_main = models.ImageField(upload_to='userpage/', null=True, blank=True)
+    page_img_sub1 = models.ImageField(upload_to='userpage/', null=True, blank=True)
+    page_img_sub2 = models.ImageField(upload_to='userpage/', null=True, blank=True)
+
 # class cust_info(models.Model):
-#     user = models.OneToOneField(customer_tbl.AUTH_USER_MODEL) # 현 계정의 사용자를 가져올 수 있음.
-#     nickname = models.CharField(max_length=64)
-#
+#     user = models.OneToOneField(User, on_delete = models.CASCADE) # 현 계정의 사용자를 가져올 수 있음.
+#     c_no = models.AutoField(primary_key=True)
+#     c_name = models.CharField(max_length=10)
+#     c_id = models.CharField(max_length=40, unique=True)
+#     c_pw = models.CharField(max_length=100)
+#     c_phone = models.CharField(max_length=20)
+#     c_gender = models.CharField(max_length=10)
+#     c_join = models.DateField(auto_now_add=True)
+#     c_birth = models.DateField()
+#     c_code = models.CharField(max_length=6, null=True)
+#     c_add = models.CharField(max_length=50, null=True)
+#     c_school = models.CharField(max_length=50, null=True)
+#     c_state = models.BooleanField()
+#     # 수정
+#     c_out = models.DateField(null=True)
+#     # 학부모 일 경우 자식의 학생 코드
+#     c_code_valid = models.CharField(max_length=6, null=True)
+
 # class teacher_info(models.Model):
 #     user = models.OneToOneField(customer_tbl.AUTH_USER_MODEL) # 현 계정의 사용자를 가져올 수 있음.
 #     nickname = models.CharField(max_length=64)
 #     profile_photo = models.ImageField(blank=True)
+

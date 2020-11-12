@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <meta name='viewport' content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+    <title>아테나 학원</title>
+    <style>
+        #wrap {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            min-width: 1050px;
+            min-height: 1050px;
+        }
+        
+        #header {
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 10%;
+            text-align: center;
+        }
+        
+        #top-content {
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 100px;
+        }
+        
+        #bottom-content {
+            margin-top: 100px;
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 500px;    
+        }       
+
+        .line {
+            width: 100%;
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>회원가입
+                <button type="button" class="btn btn-outline-info" style="display: inline-block; float: right;" onclick="location.href='#';">메인 페이지로 이동</button>
+            </h1>
+        </div>
+        <hr class="line">
+        <div id="content">
+            <div id="top-content">
+                <div class="card text-white bg-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                    <div class="card-body">
+                    <h4 class="card-title">가입유형 선택</h4>
+                    </div>
+                </div>
+                <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                    <div class="card-body">
+                    <h4 class="card-title">이용약관 동의</h4>
+                    </div>
+                </div>
+                <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                    <div class="card-body">
+                    <h4 class="card-title">회원정보 입력</h4>
+                    </div>
+                </div>
+                <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                    <div class="card-body">
+                    <h4 class="card-title">이메일 인증</h4>
+                    </div>
+                </div>
+            </div>    
+            <hr class="line">
+            <div id="bottom-content">
+                <div class="card border-dark mb-3" style="max-width: 250px; display: inline-block;" >
+                    <div class="card-header"><img src="studenticon.png" width="200" height="200"></div>
+                    <div class="card-body">
+                    <h4 class="card-title" style="padding-left: 10%; padding-right: 10%;"><button type="button" class="btn btn-outline-secondary btn-lg" style="width: 100%" onclick = "location.href = '#'; ">학생 회원가입</button></h4>
+                    </div>
+                </div>
+                <div class="card border-dark mb-3" style="max-width: 250px; display: inline-block; margin-left: 15%;">
+                    <div class="card-header"><img src="parentsicon.png" width="200" height="200"></div>
+                    <div class="card-body">
+                    <h4 class="card-title" style="padding-left: 10%; padding-right: 10%;"><button type="button" class="btn btn-outline-secondary btn-lg" style="width: 100%" onclick = "location.href = '#'; ">학부모 회원가입</button></h4> 
+                    </div>
+                </div>
+                <div class="card border-dark mb-3" style="max-width: 250px; display: inline-block; margin-left: 15%;">
+                    <div class="card-header"><img src="teachericon.png" width="200" height="200"></div>
+                    <div class="card-body">
+                    <h4 class="card-title" style="padding-left: 10%; padding-right: 10%;"><button type="button" class="btn btn-outline-secondary btn-lg" style="width: 100%" onclick = "location.href = '#'; ">선생님 회원가입</button></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

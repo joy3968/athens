@@ -43,6 +43,12 @@
 		gtag('js', new Date());
 
 		gtag('config', 'UA-119386393-1');
+
+		$('.date-picker').datepicker({
+		language: 'kr',
+		autoClose: true,
+		dateFormat: 'yyyy MM dd',
+	});
 	</script>
 </head>
 <body>
@@ -164,20 +170,26 @@
 					</div>
 				</div>
 			</div>
+			{% if user.is_authenticated %}
 			<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
 							<img src="{% static 'vendors/images/photo2.jpg' %}" alt="">
 						</span>
-						<span class="user-name">Ross C. Lopez</span>
+						<span class="user-name">{{ user.username }}</span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
-						<a class="dropdown-item" href="login"><i class="dw dw-logout"></i> 로그 아웃</a>
+						<a class="dropdown-item" href="logout"><i class="dw dw-logout"></i>로그아웃</a>
 					</div>
+					{% else %}
+					<div class="mt-2 pt-1 pull-right">
+						<a class="dropdown-item" href="login"><i class="dw dw-login"></i> 로그인 </a>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 <!--			<div class="github-link">-->
@@ -279,8 +291,8 @@
 							<span class="micon dw dw-house-1"></span><span class="mtext">사용자페이지 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="index.html">Dashboard style 1</a></li>
-							<li><a href="index2.html">Dashboard style 2</a></li>
+							<li><a href="userpage">사용자페이지 사진등록</a></li>
+<!--							<li><a href="index2.html">Dashboard style 2</a></li>-->
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -337,7 +349,7 @@
 							<span class="micon dw dw-paint-brush"></span><span class="mtext">상담 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="font-awesome.html">상담 목록보기</a></li>
+							<li><a href="consult_list">상담 목록보기</a></li>
 <!--							<li><a href="foundation.html">Foundation Icons</a></li>-->
 <!--							<li><a href="ionicons.html">Ionicons Icons</a></li>-->
 <!--							<li><a href="themify.html">Themify Icons</a></li>-->
@@ -360,8 +372,8 @@
 							<span class="micon dw dw-analytics-21"></span><span class="mtext">공지사항 관리</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="video-player.html">공지사항 등록</a></li>
-							<li><a href="login.html">공지사항 목록</a></li>
+							<li><a href="notice">공지사항 등록</a></li>
+							<li><a href="noticelist">공지사항 목록</a></li>
 <!--							<li><a href="forgot-password.html">Forgot Password</a></li>-->
 <!--							<li><a href="reset-password.html">Reset Password</a></li>-->
 						</ul>
@@ -371,8 +383,8 @@
 							<span class="micon dw dw-analytics-21"></span><span class="mtext">자주하는 질문</span>
 						</a>
 						<ul class="submenu">
-							<li><a href="400.html">질문 답변 등록</a></li>
-							<li><a href="403.html">목록 보기</a></li>
+							<li><a href="faq">질문 답변 등록</a></li>
+							<li><a href="faqlist">목록 보기</a></li>
 <!--&lt;!&ndash;-->
 						</ul>
 					</li>

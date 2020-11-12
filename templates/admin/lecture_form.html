@@ -39,7 +39,7 @@
 											{{ form_teacher.as_p }}
 										</div>
 										<div class= "col mt-5">
-											<button type="submit" class="btn btn-primary">선생님 정보</button>
+											<button type="submit" class="btn btn-primary" name="버튼" value="1">선생님 선택</button>
 										</div>
 									</form>
 								</div>
@@ -73,10 +73,31 @@
 							</table>
 										</div>
 								</div>
+
+
 								{% endif %}
 							<div class="container">
-                        <form method="post" enctype="multipart/form-data" class="post-form my-3">
+<!--								<form method="post">-->
+<!--									{% csrf_token %}-->
+<!--									<div class="row ml-1">-->
+<!--										<select class="form-control col-md-4" name="t_no">-->
+<!--											{% if teacher_list %}-->
+<!--											<option value="none">======선택=======</option>-->
+<!--											{% for teacher in teacher_list %}-->
+<!--											<option>{{ teacher.t_name }}</option>-->
+<!--											{% endfor %}-->
+<!--											{% else %}-->
+<!--											<option value="none">==등록된 선생님이 없습니다.==</option>-->
+<!--											{% endif %}-->
 
+<!--										</select>-->
+<!--										<button type="submit" class="btn btn-primary col-md-2 ml-5">선생님 정보</button>-->
+<!--									</div>-->
+<!--								</form>-->
+
+
+								</select>
+                        <form method="post" enctype="multipart/form-data" class="post-form my-3">
                             {% csrf_token %}
                             {{ form.as_p }}
 
@@ -84,8 +105,11 @@
 							<label>커리큘럼 이미지:</label>
 								<input name="l_img" type="file">
 							</p>
+							{% if teacher_t_no %}
+							<input name="gg" value={{ teacher_t_no }} style ="display : none">
+							{% endif %}
 							<div class="row pd-5 pt-2 pull-right">
-                            <button type="submit" class="btn btn-primary">등록하기</button>
+                            <button type="submit" class="btn btn-primary" name="버튼" value="2">등록하기</button>
 							</div>
                         </form>
 								</div>

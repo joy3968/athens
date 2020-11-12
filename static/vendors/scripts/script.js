@@ -169,7 +169,7 @@ jQuery(document).ready(function(){
 
 	// date picker
 	$('.date-picker').datepicker({
-		language: 'en',
+		language: 'kr',
 		autoClose: true,
 		dateFormat: 'dd MM yyyy',
 	});

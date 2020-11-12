@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}아테네 학원{% endblock %}
+{% block content %}
+
+<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>사진 등록</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">사용자페이지 관리</a></li>
+									<li class="breadcrumb-item active" aria-current="page">사진 등록</li>
+								</ol>
+							</nav>
+						</div>
+
+					</div>
+				</div>
+
+
+
+				<div class = "row">
+					<div class="col container">
+                		<div class="col card-box mb-30">
+                    		<div class="container pb-3">
+								<h5 class="my-3 border-bottom pt-3 pb-2">사진 등록</h5>
+						<div class = "row">
+							<div class = "col">
+								<div class = "row">
+
+
+
+								</div>
+
+
+
+							<div class="container">
+<!--								<form method="post">-->
+<!--									{% csrf_token %}-->
+<!--									<div class="row ml-1">-->
+<!--										<select class="form-control col-md-4" name="t_no">-->
+<!--											{% if teacher_list %}-->
+<!--											<option value="none">======선택=======</option>-->
+<!--											{% for teacher in teacher_list %}-->
+<!--											<option>{{ teacher.t_name }}</option>-->
+<!--											{% endfor %}-->
+<!--											{% else %}-->
+<!--											<option value="none">==등록된 선생님이 없습니다.==</option>-->
+<!--											{% endif %}-->
+
+<!--										</select>-->
+<!--										<button type="submit" class="btn btn-primary col-md-2 ml-5">선생님 정보</button>-->
+<!--									</div>-->
+<!--								</form>-->
+
+
+								</select>
+                        <form method="post" enctype="multipart/form-data" class="post-form my-3">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+							<p>
+								<div class="row">
+							<label class="col-md-2 mt-2">커리큘럼 이미지:</label>
+								<input class="col-md-4 form-control" name="l_img" type="file">
+							</div>
+															<div class="row">
+							<label class="col-md-2 mt-2">커리큘럼 이미지:</label>
+								<input class="col-md-4 form-control" name="l_img" type="file">
+							</div>
+															<div class="row">
+							<label class="col-md-2 mt-2">커리큘럼 이미지:</label>
+								<input class="col-md-4 form-control" name="l_img" type="file">
+							</div>
+							</p>
+							{% if teacher_t_no %}
+							<input name="gg" value={{ teacher_t_no }} style ="display : none">
+							{% endif %}
+							<div class="row pd-5 pt-2 pull-right">
+                            <button type="submit" class="btn btn-primary" name="버튼" value="2">등록하기</button>
+							</div>
+                        </form>
+								</div>
+                    </div>
+							</div>
+					</div>
+                			</div>
+						</div>
+
+
+					</div>
+            	</div>
+
+
+	<script src="../static/vendors/scripts/core.js"></script>
+	<script src="../static/vendors/scripts/script.min.js"></script>
+	<script src="../static/vendors/scripts/process.js"></script>
+	<script src="../static/vendors/scripts/layout-settings.js"></script>
+	<script src="../static/src/plugins/apexcharts/apexcharts.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="../static/vendors/scripts/dashboard.js"></script>
+{% endblock %}

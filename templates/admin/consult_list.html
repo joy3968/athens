@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}아테네 학원 - 상담 목록{% endblock %}
+{% block content %}
+
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>상담 목록</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">상담 관리</a></li>
+									<li class="breadcrumb-item active" aria-current="page">상담 목록</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="col-md-6 col-sm-12 text-right">
+							<div class="dropdown">
+<!--								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">-->
+<!--									January 2018-->
+<!--								</a>-->
+<!--								<div class="dropdown-menu dropdown-menu-right">-->
+<!--									<a class="dropdown-item" href="#">Export List</a>-->
+<!--									<a class="dropdown-item" href="#">Policies</a>-->
+<!--									<a class="dropdown-item" href="#">View Assets</a>-->
+<!--								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Simple Datatable start -->
+				<div class="card-box mb-30">
+					<div class="pd-20">
+						<h4 class="text-blue h4">상담 목록</h4>
+					</div>
+					<div class="pb-20">
+						<table class="data-table table stripe hover nowrap">
+							<thead>
+								<tr>
+									<th class="table-plus datatable-nosort text-center">상담번호</th>
+									<th class="text-center">신청일시</th>
+									<th class="text-center">선생님</th>
+<!--									<th class="text-center">대상</th>-->
+									<th class="text-center">이름</th>
+                                    <th class="text-center">상담 예약시간</th>
+                                    <th class="text-center">진행 여부</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% if customer_list %}
+								{% for customer in customer_list %}
+								{% if customer.c_code_valid%}
+
+
+								<tr>
+									<td class="table-plus text-center">{{ customer.c_name }}</td>
+									<td class="text-center">{{ customer.c_id }}</td>
+									<td class="text-center">{{ customer.c_phone }}</td>
+									<td class="text-center">{% for student in customer_list %}
+										{% if customer.c_code_valid == student.c_code %}
+										<span class="dropdown">
+											<a class="btn btn-link p-0 font-12 line-height-1 no-arrow dropdown-toggle text-center" href="#" role="button" data-toggle="dropdown">
+												{{ student.c_name }}
+											</a>
+											<div class="dropdown-menu dropdown-menu-right">
+												<a class="dropdown-item" href="#">ID : {{ student.c_id }}</a>
+												<a class="dropdown-item" href="#">생년월일 : {{ student.c_birth }}</a>
+												<a class="dropdown-item text-center" href="#" onclick='window.open("../admin/student_detail/{{ student.c_no }}", "PopupWin", "width=700,height=700,left=670,top=150, location=no, resizable=no");'/>상세보기</a>
+											</div>
+										</span>
+										{% endif %}
+										{% endfor %}
+									</td>
+									<td class="text-center">{{ customer.c_join }}</td>
+
+								</tr>
+
+							{% endif %}
+							{% endfor %}
+							{% endif %}
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+	<!-- js -->
+	<script src="../static/vendors/scripts/core.js"></script>
+	<script src="../static/vendors/scripts/script.min.js"></script>
+	<script src="../static/vendors/scripts/process.js"></script>
+	<script src="../static/vendors/scripts/layout-settings.js"></script>
+	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="../static/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/vfs_fonts.js"></script>
+	<!-- Datatable Setting js -->
+	<script src="../static/vendors/scripts/datatable-setting.js"></script></body>
+{% endblock %}

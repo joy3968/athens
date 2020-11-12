@@ -12,7 +12,7 @@ class LectureForm(forms.ModelForm):
             'l_totalnum': forms.TextInput(attrs={'class': 'form-control', 'rows': 5}),
             'l_term': forms.Select(attrs={'class': 'form-control', 'rows': 5}),
             'l_pay': forms.Select(attrs={'class': 'form-control', 'rows': 5}),
-            'l_startdate': forms.DateInput(attrs={'class': 'form-control', 'rows': 5}),
+            'l_startdate': forms.DateInput(attrs={'class': 'form-control date-picker' ,'rows': 5}),
             # 'l_img' : forms.ClearableFileInput(attrs={'class': 'form-control', 'rows': 5}),
             'l_desc': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
             'l_dept': forms.Select(attrs={'class': 'form-control', 'rows': 5}),
@@ -45,3 +45,56 @@ class LectureForm_teacher(forms.ModelForm):
 
         labels = {
             't_no': '선생님 성함'}
+
+# class userpage_form(forms.ModelForm):
+#     class Meta:
+#         model = userpage_tbl
+#
+#         fields = ['page_img_main', 'page_img_sub1', 'page_img_sub2']
+#
+#         widgets = {
+#             'page_img_main': forms.ImageField(attrs={'class': 'form-control', 'row' : 5})}
+#
+#         labels = {
+#             't_no': '선생님 성함'}
+
+
+
+
+# 병훈 --------------------------------------------------------------
+
+class NoticeForm(forms.ModelForm):
+    class Meta:
+        model = notice_tbl
+        fields = ['notice_no','notice_target','notice_title','notice_content']
+
+        widgets = {
+            'notice_target': forms.Select(attrs={'class': 'form-control', 'rows': 5}),
+            'notice_title': forms.TextInput(attrs={'class': 'form-control', 'rows': 5}),
+            'notice_content': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+        }
+
+        labels = {
+            'notice_title':'공지글 제목',
+            'notice_date':'공지 날짜',
+            'notice_target':'공지 대상',
+            'notice_content':'내용'
+        }
+
+class FaqForm(forms.ModelForm):
+    class Meta:
+        model = faq_tbl
+        fields = ['faq_no','faq_question','faq_answer',]
+
+        widgets = {
+            'faq_question': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+            'faq_answer': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+        }
+
+        labels = {
+            'faq_question':'질문 내용',
+            'faq_answer':'질문 답변',
+        }
+
+
+

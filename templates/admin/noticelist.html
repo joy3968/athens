@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}공지사항 목록{% endblock %}
+{% block content %}
+   <div class="main-container">
+      <div class="pd-ltr-20 xs-pd-20-10">
+         <div class="min-height-200px">
+            <div class="container pd-0">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                           <h4>공지사항 목록</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="index.html">공지사항 관리</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">공지사항 목록</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+<!--               시작-->
+                 <div class="card-box mb-30">
+               <div class="pd-20">
+                  <h4 class="text-blue h4">공지사항 목록</h4>
+               </div>
+               <div class="pb-20">
+                  <table class="data-table table stripe hover nowrap">
+                     <thead class="">
+                        <tr>
+<!--                           <th class="table-plus datatable-nosort">이름</th>-->
+                           <th>번호</th>
+                           <th>공개범위</th>
+                           <th>제목</th>
+                           <th>게시일</th>
+                           <th class="datatable-nosort">상세보기</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% if notice_list %}
+                        {% for notice in notice_list %}
+                        <tr>
+                           <td class="table-plus">{{ notice.notice_no }}</td>
+                            <td>{{ notice.notice_target }}</td>
+                           <td>{{ notice.notice_title }}</td>
+                           <td>{{ notice.notice_date }}</td>
+                           <td>
+                              <a href="#", onclick='window.open("../admin/noticedetail/{{ notice.notice_no }}", "PopupWin", "width=700,height=700,left=670,top=150, location=no, resizable=no");'/>상세 <i class="icon-copy fi-plus"></i></a>
+                           </td>
+                        </tr>
+                     {% endfor %}
+                     {% endif %}
+                     </tbody>
+                  </table>
+
+    <!-- ---------------------------------------------------------------------------------------- -->
+
+<!--               끝-->
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+<!-- js -->
+<script src="../static/vendors/scripts/core.js"></script>
+<script src="../static/vendors/scripts/script.min.js"></script>
+<script src="../static/vendors/scripts/process.js"></script>
+<script src="../static/vendors/scripts/layout-settings.js"></script>
+<!-- switchery js -->
+<script src="../static/src/plugins/switchery/switchery.min.js"></script>
+<!-- bootstrap-tagsinput js -->
+<script src="../static/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+<!-- bootstrap-touchspin js -->
+<script src="../static/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="../static/vendors/scripts/advanced-components.js"></script>
+         {% endblock %}

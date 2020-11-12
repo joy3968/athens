@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}질문 목록{% endblock %}
+{% block content %}
+
+
+
+   <div class="main-container">
+      <div class="pd-ltr-20 xs-pd-20-10">
+         <div class="min-height-200px">
+            <div class="container pd-0">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                           <h4>자주하는 질문 목록</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="index.html">자주하는 질문</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">목록 보기</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+<!--               시작-->
+                 <div class="card-box mb-30">
+               <div class="pd-20">
+                  <h4 class="text-blue h4">질문 목록</h4>
+               </div>
+               <div class="pb-20">
+                  <table class="data-table table stripe hover nowrap">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="datatable-nosort">번호</th>
+                           <th class="datatable-nosort">질문 내용</th>
+                        </tr>
+                     </thead>
+                     <tbody class="text-center">
+                        {% if faq_list %}
+                        {% for i in faq_list %}
+                        <tr>
+                           <td class="">{{ i.faq_no }}</td>
+                           <td class="dropdown-toggle"><a href="#", onclick='document.getElementById("test{{i.faq_no}}").innerHTML = "{{i.faq_answer}}"'>{{ i.faq_question }}</a></td>
+                        </tr>
+                        <tr id = test{{i.faq_answer}}>
+                           <td colspan="2" class="font-14"></td>
+                        </tr>
+
+                        {% endfor %}
+                     {% endif %}
+                     </tbody>
+                  </table>
+
+    <!-- ---------------------------------------------------------------------------------------- -->
+
+<!--               끝-->
+            </div>
+         </div>
+      </div>
+   </div>
+      </div>
+   </div>
+<!-- js -->
+
+<script src="../static/vendors/scripts/core.js"></script>
+<script src="../static/static/vendors/scripts/script.min.js"></script>
+<script src="../static/static/vendors/scripts/process.js'"></script>
+<script src="../static/vendors/scripts/layout-settings.js"></script>
+<!-- switchery js -->
+<script src="../static/src/plugins/switchery/switchery.min.js"></script>
+<!-- bootstrap-tagsinput js -->
+<script src="../static/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+<!-- bootstrap-touchspin js -->
+<script src="../static/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="../static/vendors/scripts/advanced-components.js"></script>
+
+
+
+{% endblock %}

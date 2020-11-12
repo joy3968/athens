@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}공지사항 등록{% endblock %}
+{% block content %}
+   <div class="main-container">
+      <div class="pd-ltr-20 xs-pd-20-10">
+         <div class="min-height-200px">
+            <div class="container pd-0">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                           <h4>공지사항 등록하기</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="index.html">공지사항 관리</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">공지사항 등록</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+<!--               시작-->
+         <div class="min-height-200px">
+             <div class="page-header">
+
+                 <div class="card-box mb-30">
+                    <div class="container pl-5 pb-3 pr-5">
+                        <h5 class="my-3 border-bottom pt-3 pb-2">공지사항 등록</h5>
+                            <div class = "row">
+                            <div class = "col">
+                            <form method="post" class="post-form my-3">
+                            {% csrf_token %}
+
+                            {{ form.as_p }}
+                            <div class="row pt-4 ">
+                                <a href="noticelist" class="btn btn-primary ml-3" >목록보기</a>
+                                <button type="submit" class="btn btn-primary ml-auto mr-3">등록하기</button>
+                            </div>
+                            </form>
+                            </div>
+                            </div>
+
+
+                 </div>
+            </div>
+<!--                  -->
+            </div>
+         </div>
+<!--               끝-->
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+<!-- js -->
+<script src="../static/vendors/scripts/core.js"></script>
+<script src="../static/vendors/scripts/script.min.js"></script>
+<script src="../static/vendors/scripts/process.js"></script>
+<script src="../static/vendors/scripts/layout-settings.js"></script>
+<!-- switchery js -->
+<script src="../static/src/plugins/switchery/switchery.min.js"></script>
+<!-- bootstrap-tagsinput js -->
+<script src="../static/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+<!-- bootstrap-touchspin js -->
+<script src="../static/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="../static/vendors/scripts/advanced-components.js"></script>
+         {% endblock %}

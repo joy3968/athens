@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}아테네 학원 - 퇴사 선생님 목록{% endblock %}
+{% block content %}
+
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>퇴사 선생님 목록</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">선생님 관리</a></li>
+									<li class="breadcrumb-item active" aria-current="page">퇴사선생님 목록</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="col-md-6 col-sm-12 text-right">
+							<div class="dropdown">
+<!--								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">-->
+<!--									January 2018-->
+<!--								</a>-->
+<!--								<div class="dropdown-menu dropdown-menu-right">-->
+<!--									<a class="dropdown-item" href="#">Export List</a>-->
+<!--									<a class="dropdown-item" href="#">Policies</a>-->
+<!--									<a class="dropdown-item" href="#">View Assets</a>-->
+<!--								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Simple Datatable start -->
+				<div class="card-box mb-30">
+					<div class="pd-20">
+						<h4 class="text-blue h4">퇴사 선생님 목록</h4>
+					</div>
+					<div class="pb-20">
+						<table class="data-table table stripe hover nowrap">
+							<thead>
+								<tr>
+									<th class="table-plus datatable-nosort">이름</th>
+									<th>성별</th>
+									<th>아이디</th>
+									<th>전화번호</th>
+									<th>퇴사일</th>
+									<th class="datatable-nosort">재입사 여부</th>
+								</tr>
+							</thead>
+							<tbody>
+							{% if teacher_list %}
+							{% for teacher in teacher_list %}
+							{% if not teacher.t_state %}
+								<tr>
+									<td class="table-plus">{{ teacher.t_name }}</td>
+									<td>{{ teacher.t_gender }}</td>
+									<td>{{ teacher.t_id }}</td>
+									<td>{{ teacher.t_phone }}</td>
+									<td>{{ teacher.t_out }}</td>
+									<td>
+										<div class="dropdown">
+											<form method="post" onsubmit="return confirm('{{ teacher.t_name }} 선생님을 재입사 처리 하시겠습니까?');">
+                            				{% csrf_token %}
+											<button id="test" value="{{ teacher.t_no }}" name="t_no" type="submit" class="btn btn-success"><span class="font_a">재입사</span></button>
+											</form>
+
+<!--											<button class="btn font-15 p-0 text-center" href="#" role="button" data-toggle="dropdown">-->
+<!--																								 신청-->
+<!--											</button>-->
+<!--											<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">-->
+<!--												<a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>-->
+<!--												<a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>-->
+<!--												<a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>-->
+<!--											</div>-->
+										</div>
+									</td>
+								</tr>
+							{% endif %}
+							{% endfor %}
+							{% endif %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+	<!-- js -->
+	<script src="../static/vendors/scripts/core.js"></script>
+	<script src="../static/vendors/scripts/script.min.js"></script>
+	<script src="../static/vendors/scripts/process.js"></script>
+	<script src="../static/vendors/scripts/layout-settings.js"></script>
+	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="../static/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/vfs_fonts.js"></script>
+	<!-- Datatable Setting js -->
+	<script src="../static/vendors/scripts/datatable-setting.js"></script></body>
+{% endblock %}

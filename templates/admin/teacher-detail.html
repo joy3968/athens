@@ -5,7 +5,6 @@
     <title></title>
     {% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'plus.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -15,9 +14,9 @@
 <!--  crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    	<link rel="apple-touch-icon" sizes="180x180" href="../static/vendors/images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="../static/vendors/images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="../static/vendors/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'vendors/images/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'vendors/images/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'vendors/images/favicon-16x16.png' %}">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,11 +24,11 @@
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/core.css">
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/src/plugins/datatables/css/responsive.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/vendors/styles/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/core.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/dataTables.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'src/plugins/datatables/css/responsive.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/style.css' %}">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
@@ -39,7 +38,11 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-119386393-1');
 
-	</script>
+    </script>
+
+
+
+
 </head>
 <body>
     <div class="root">
@@ -48,19 +51,28 @@
                 <div class="row">
                     <div class ="col-3">
                         <p>
-                            <img src="../../static/vendors/images/blue.jpg" alt="">
+                            <img class="ml-2" src="{% static 'vendors/images/blue.jpg' %}" alt="">
                         </p>
-                        <p>
-                            <button type="button" class="btn btn-danger"><span class="font_a">퇴사</span></button>
-                            <button type="button" class="btn btn-primary"><span class="font_a">저장</span></button>
-                        </p>
+                        <div class ="row ml-1">
+                            <form method="post" onsubmit="return confirm('퇴사 처리 하시겠습니까?')">
+                            {% csrf_token %}
+
+                            <button id="test" value="1" name="버튼" type="submit" class="delete btn btn-danger"><span class="font_a">퇴사</span></button>
+                            </form>
+                            <form class="ml-2" method="post" onsubmit="return confirm('저장 하시겠습니까?');">
+                                {% csrf_token %}
+                            <button value="2" name="버튼" type="submit" class="btn btn-primary"><span class="font_a">저장</span></button>
+
+                        </div>
                     </div>
+
                     <div class="col-7">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1"> 선생님 특이사항 </label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="t_text">{{ teacher_info.t_text }}</textarea>
                          </div>
                     </div>
+                    </form>
 
                 </div>
 
@@ -83,7 +95,7 @@
                             <th>성별</th>
                             <td style="font-size : 11px">{{ teacher_info.t_gender }}</td>
                             <th>입사일자</th>
-                            <td style="font-size : 12px">{{ teacher_info.t_join }}</td>
+                            <td style="font-size : 11px">{{ teacher_info.t_join }}</td>
                         </tr>
                     </table>
                 </div>
@@ -100,7 +112,7 @@
                             <th>담당과목</th>
                             <th>부서</th>
                             <th>학년</th>
-                            <th>수강 인원</th>
+                            <th>강의 시작일</th>
                             <th>강의 기간</th>
                         </tr>
 
@@ -111,14 +123,11 @@
                             <td style="font-size : 11px">{{ lecture.l_subject }}</td>
                             <td style="font-size : 11px">{{ lecture.l_dept }}</td>
                             <td style="font-size : 11px">{{ lecture.l_class }}학년</td>
-                            <td style="font-size : 11px">{{ lecture.l_totalnum }}명</td>
+                            <td style="font-size : 11px">{{ lecture.l_startdate }}</td>
                             <td style="font-size : 11px">{{ lecture.l_term }}개월</td>
                         </tr>
-                        {% else %}
-                        <tr>
-                            <td colspan="5" class="text-center" style ="font-size:12px;"> 진행중인 강의가 없습니다.</td>
-                        </tr>
-                     {% endif %}
+
+                        {% endif %}
                         {% endfor %}
                         {% endif %}
 
@@ -129,17 +138,17 @@
         </div>
     </div>
 
-    <script src="../static/plus.js"></script>
-	<script src="../static/vendors/scripts/core.js"></script>
-	<script src="../static/vendors/scripts/script.min.js"></script>
-	<script src="../static/vendors/scripts/process.js"></script>
-	<script src="../static/vendors/scripts/layout-settings.js"></script>
-	<script src="../static/src/plugins/apexcharts/apexcharts.min.js"></script>
-	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
-	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-	<script src="../static/vendors/scripts/dashboard.js"></script>
+    <script src="{% static 'plus.js' %}"></script>
+	<script src="{% static 'vendors/scripts/core.js' %}"></script>
+	<script src="{% static 'vendors/scripts/script.min.js' %}"></script>
+	<script src="{% static 'vendors/scripts/process.js' %}"></script>
+	<script src="{% static 'vendors/scripts/layout-settings.js' %}"></script>
+	<script src="{% static 'src/plugins/apexcharts/apexcharts.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'vendors/scripts/dashboard.js' %}"></script>
 
 </body>
 </html>

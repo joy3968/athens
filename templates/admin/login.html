@@ -30,6 +30,12 @@
 		gtag('config', 'UA-119386393-1');
 	</script>
 </head>
+{% if user.is_authenticatied %}
+로그인 성공!
+{{ user.username }}님 환영합니다.
+{% else %}
+
+
 <body class="login-page">
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
@@ -56,7 +62,11 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Atens Adminster</h2>
 						</div>
-						<form>
+
+
+
+						<form action="", method="POST">
+							{% csrf_token %}
 							<div class="select-role">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn active">
@@ -65,22 +75,23 @@
 										<span>I'm</span>
 										Manager
 									</label>
-									<label class="btn">
-										<input type="radio" name="options" id="user">
+
+										<a href="/" class="btn">
 										<div class="icon"><img src="../static/vendors/images/person.svg" class="svg" alt=""></div>
 										<span>사용자 페이지</span>
 										<span>&nbsp;&nbsp;&nbsp; 바로가기</span>
-									</label>
+										</a>
+
 								</div>
 							</div>
 							<div class="input-group custom">
-								<input type="text" class="form-control form-control-lg" placeholder="Username">
+								<input name = "username" type="text" class="form-control form-control-lg" placeholder="ID를 입력해주세요">
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 								</div>
 							</div>
 							<div class="input-group custom">
-								<input type="password" class="form-control form-control-lg" placeholder="**********">
+								<input name = "password" type="password" class="form-control form-control-lg" placeholder="**********">
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 								</div>
@@ -103,7 +114,7 @@
 											use code for form submit
 											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
 										-->
-										<a class="btn btn-primary btn-lg btn-block" href="index.html">로그인</a>
+										<input type="submit" value="로그인" class="btn btn-primary btn-lg btn-block" href="index.html"></input>
 <!--									</div>-->
 <!--									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>-->
 <!--									<div class="input-group mb-0">-->
@@ -111,6 +122,7 @@
 <!--									</div>-->
 <!--								</div>-->
 							</div>
+
 						</form>
 					</div>
 				</div>
@@ -122,5 +134,6 @@
 	<script src="../static/vendors/scripts/script.min.js"></script>
 	<script src="../static/vendors/scripts/process.js"></script>
 	<script src="../static/vendors/scripts/layout-settings.js"></script>
+{% endif %}
 </body>
 </html>
