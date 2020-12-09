@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+ <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <style>
+        #wrap {
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            min-width: 1050px;
+            min-height: 1050px;
+        }
+
+        #header {
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 10%;
+            text-align: center;
+        }
+
+        #top-content {
+            margin-left: 20%;
+            margin-right: 20%;
+            min-width: 1050px;
+            height: 100px;
+        }
+
+        #bottom-content {
+            margin-top: 100px;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-bottom: 10%;
+            min-width: 1050px;
+            height: 70%;
+        }
+
+        .line {
+            width: 100%;
+            background-color: black;
+        }
+
+        div.go_btn {
+            float: left;
+            margin-left: 27%;
+            width: 15%;
+            height: 5%;
+            }
+
+
+    </style>
+
+</head>
+<body>
+<div id="wrap">
+    <div id="header" >
+        <h1>회원가입
+        </h1>
+    </div>
+    <hr class="line">
+    <div id="content">
+        <div id="top-content">
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">가입유형 선택</h4>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">이용약관 동의</h4>
+                </div>
+            </div>
+            <div class="card border-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body"><h4 class="card-title">회원정보 입력</h4>
+                </div>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="width: 200px; text-align: center; display: inline-block; margin-left: 5%;">
+                <div class="card-body">
+                <h4 class="card-title">이메일 인증</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="line">
+    <div id="bottom-content" class="text-center">
+    <div class="container ">
+        <div class="spacer_30">&nbsp;</div>
+        <div class="spacer_90 hidden-sm hidden-xs">&nbsp;</div>
+        <div class="spacer_30">&nbsp;</div>
+        <div class="row ">
+            <div class="col-md-8 col-md-offset-5">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1 >이메일 인증 진행 중</h1>
+                        <h7>입력하신 E-Mail로 인증메일을 보내드렸습니다.</h7>
+                        <br>
+                        <h7>이메일을 확인하여 인증을 계속해주시기 바랍니다.</h7>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer_30">&nbsp;</div>
+        <div class="spacer_90 hidden-sm hidden-xs">&nbsp;</div>
+        <div class="spacer_30">&nbsp;</div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

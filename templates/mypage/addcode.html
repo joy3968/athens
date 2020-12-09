@@ -1,0 +1,44 @@
+{% extends "base2.html" %}
+{% block content %}
+{% load static %}
+{% include "mypage/base/mypage_header.html" %}
+<div class="container mt-5 mb-5" style="padding : 100px 100px">
+    <div class="text-center mb-5">
+        <h1>자녀 정보 확인</h1>
+    </div>
+    <form method="POST" class="post-form">
+        {%csrf_token%}
+            <!-- 정보수정 -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 " style="width: 50%; margin : auto;">
+                        <form class="text-center">
+                            <table class="mb-5">
+                                <tr><td><label></label></td></tr>
+                                <tr>
+                                <td><label for="usercode">첫 번째 자녀 코드 : </label></td>
+                                <td><input type="text" value="{{ first_child.c_code }}" style="width:300px;" name="usercode" disabled></td>
+                            </tr>
+                                <tr><td><label></label></td></tr>
+                            <tr>
+                                <td><label for="changeusercode">바꾸실 자녀 코드 : </label></td>
+                                <td><input type="text" value="" style="width:300px;" name="changeusercode"></td>
+                            </tr>
+                                <tr><td><label></label></td></tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col center">
+                            <input name="btn" type="submit" class="btn btn-success ml-3" style="width :80px; height : 40px; border-radius : 5px;" value="저장">
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+</div>
+{% endblock %}

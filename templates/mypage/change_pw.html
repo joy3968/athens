@@ -1,0 +1,47 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+{% include "mypage/base/mypage_header.html" %}
+
+
+        {%csrf_token%}  <!-- 보안이슈로 입력 -->
+        <!-- 정보수정 -->
+    <div class="container" style="padding : 100px 100px">
+        <form method="POST" class="post-form">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col" style="width: 50%;">
+                        <table>
+                            <tr>
+                                <td><label for="userpw">기존 비밀번호</label></td>
+                                <td><label>*</label></td>
+                                <td><input type="password" value="*********" style="width:300px;" name="userpw"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="newuserpw">새 비밀번호</label></td>
+                                <td><label>*</label></td>
+                                <td><input type="password" value="*********" style="width:300px;" name="newuserpw"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="newuserpwcheck">새 비밀번호 확인</label></td>
+                                <td><label>*</label></td>
+                                <td><input type="password" value="*********" style="width:300px;" name="newuserpwcheck"></td>
+                            </tr>
+                      </table>
+                </div>
+            <div class="col"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col center">
+                    <input name="btn" type="submit" class="btn btn-success ml-3" value="저장">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

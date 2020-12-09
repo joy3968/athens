@@ -1,0 +1,67 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+ 
+{% include "mypage/base/mypage_header.html" %}
+ 
+    <!-- 본인인증 -->
+    <div class="container mt-5 mb-5">
+        <div class="text-center">
+            <h1>개인 정보 수정</h1>
+        </div>
+    </div>
+
+    <!-- 정보수정 -->
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col" style="width: 50%;">
+                <form class="text-center">
+                    <table>
+                        <tr>
+                            <td><label for="useremail">이 메 일</label></td>
+                            <td><label name="useremail">*</label></td>
+                            <td><input type="text" value="{{ customer_info.c_id }}" style="width:300px;" disabled name="useremail"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userpw">비밀번호</label></td>
+                            <td><label name="userpw">*</label></td>
+                            <td><input type="password" value="{{ customer_info.c_pw }}" style="width:300px;" name="userpw" id="pwd1"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userpw">비밀번호 확인</label></td>
+                            <td><label name="userpw">*</label></td>
+                            <td><input type="password" value="{{ customer_info.c_pw }}" style="width:300px;" name="userpwcheck" id="pwd2"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="username">이름</label></td>
+                            <td><label name="username">*</label></td>
+                            <td><input name="username" type="text" value="{{ customer_info.c_name }}" style="width:300px;" disabled></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userphone"></label>휴대전화</td>
+                            <td><label name="userphone"></label>*</td>
+                            <td><input name="userphone" type="text" value="{{ customer_info.c_phone }}" style="width:300px;"></td>
+                        </tr>
+                        <tr>
+                            <td><label for=""></label>주 소</td>
+                            <td><label name=""></label> </td>
+                            <td><input name="" type="text" value="{{ customer_info.c_add }}" style="width:300px;"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col center">
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" type="save">저장
+                </button>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}

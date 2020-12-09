@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% block title %}아테네 학원 - 퇴사 선생님 목록{% endblock %}
+{% block content %}
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+<script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+
+
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>학생 수 통계</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">통계 관리</a></li>
+									<li class="breadcrumb-item active" aria-current="page">학생 수 통계</li>
+								</ol>
+							</nav>
+						</div>
+						<div class="col-md-6 col-sm-12 text-right">
+							<div class="dropdown">
+<!--								<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">-->
+<!--									January 2018-->
+<!--								</a>-->
+<!--								<div class="dropdown-menu dropdown-menu-right">-->
+<!--									<a class="dropdown-item" href="#">Export List</a>-->
+<!--									<a class="dropdown-item" href="#">Policies</a>-->
+<!--									<a class="dropdown-item" href="#">View Assets</a>-->
+<!--								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+            <!-- 차트 start-->
+        <div class="card-box mb-30">
+<!--                <div class="card-box mb-30" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>-->
+                 <script type="text/javascript">
+
+                    $.get('chart.teacher', function(jsondata) {
+
+                        Highcharts.chart('container', {
+
+                           chart: {
+
+                                type: 'column'
+
+                            },
+
+                            title : {
+                                text : '학생 수'
+
+                            },
+
+                            subtitle : {
+                            	text : '선생님 별 학생 수'
+                            },
+
+                            yAxis : {
+                                title : {
+
+                                    text: '명'
+                               }
+                            },
+
+                            legend : {
+                                layout : 'vertical',
+
+
+                            },
+
+                            data: jsondata,
+
+                        });
+
+                    });
+
+                </script>
+				 <script type="text/javascript">
+
+                    $.get('chart.teacher', function(jsondata,y) {
+
+                        Highcharts.chart('line', {
+
+                           chart: {
+
+                                type: 'line'
+
+                            },
+
+                            title : {
+                                text : '매출'
+
+                            },
+
+
+                            yAxis : {
+                                title : {
+
+                                    text: '원'
+                               }
+                            },
+
+                            legend : {
+                                layout : 'vertical',
+
+
+                            },
+
+                            data: jsondata,
+
+                        });
+
+                    });
+
+                </script>
+				<script type="text/javascript">
+
+                    $.get('chart.teacher', function(jsondata) {
+
+                        Highcharts.chart('pie', {
+
+                           chart: {
+
+                                type: 'pie'
+
+                            },
+
+                            title : {
+                                text : '학생 수'
+
+                            },
+
+                            subtitle : {
+                            	text : '선생님별 학생 수'
+
+                            },
+
+                            yAxis : {
+                                title : {
+
+                                    text: '원'
+                               }
+                            },
+
+                            legend : {
+                                layout : 'vertical',
+
+
+                            },
+
+                            data: jsondata,
+
+                        });
+
+                    });
+
+                </script>
+
+                </div>
+
+
+			<div class="pd-20 card-box mb-20">
+				<h5 class="h4 text-blue mb-20">학생 수 통계</h5>
+					<div class="tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active text-blue" data-toggle="tab" href="#home" role="tab" aria-selected="true">막대</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Line</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-blue" data-toggle="tab" href="#contact" role="tab" aria-selected="false">Pie</a>
+							</li>
+						</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="home" role="tabpanel">
+							<div class="pd-20">
+<!--											차트삽입-->
+								<div class="card-box mb-30" id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+							</div>
+							<div class="tab-pane fade" id="profile" role="tabpanel">
+								<div class="pd-20">
+<!--											차트 삽입-->
+									<div class="card-box mb-30" id="line" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+								</div>
+								<div class="tab-pane fade" id="contact" role="tabpanel">
+									<div class="pd-20">
+<!--											차트 삽입-->
+										<div class="card-box mb-30" id="pie" style="min-width: 310px; height: 400px; margin: 0 auto"></div></div>
+									</div>
+								</div>
+							</div>
+
+<!--				base와 연결-->
+          			  </div>
+       			 </div>
+
+
+	<!-- js -->
+	<script src="../static/vendors/scripts/core.js"></script>
+	<script src="../static/vendors/scripts/script.min.js"></script>
+	<script src="../static/vendors/scripts/process.js"></script>
+	<script src="../static/vendors/scripts/layout-settings.js"></script>
+	<script src="../static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="../static/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.print.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.html5.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/buttons.flash.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/pdfmake.min.js"></script>
+	<script src="../static/src/plugins/datatables/js/vfs_fonts.js"></script>
+	<!-- Datatable Setting js -->
+	<script src="../static/vendors/scripts/datatable-setting.js"></script></body>
+{% endblock %}

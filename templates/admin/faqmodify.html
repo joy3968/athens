@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}자주하는 질문{% endblock %}
+{% block content %}
+   <div class="main-container">
+      <div class="pd-ltr-20 xs-pd-20-10">
+         <div class="min-height-200px">
+            <div class="container pd-0">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                           <h4>자주하는 질문</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                           <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="/admin">질문 목록</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">수정 삭제</li>
+                           </ol>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+               <div class="min-height-200px">
+                   <div class="page-header">
+                       <div class="card-box mb-30">
+                           <div class="container pl-5 pb-3 pr-5">
+                               <h4 class="my-3 border-bottom pt-3 pb-2">자주하는 질문</h4>
+                               <div class="mt-5">
+                                   <div class="col">
+                                       <form method="POST" onsubmit="return confirm('수정 하시겠습니까?');">
+                                           {% csrf_token %}
+                                           <tr>
+                                               <h4>질문</h4>
+                                           </tr>
+                                           <textarea class="form-control" name="title" >{{ detail.faq_question }}</textarea>
+                                           <tr>
+                                               <h4>답변</h4>
+                                           </tr>
+                                           <textarea class="form-control" name="content" cols="95" rows="20">{{ detail.faq_answer }}</textarea>
+                                           <a href="/admin/faqlist" class="delete btn btn-danger mt-5"><span class="font_a">목록</span></a>
+                                           <button  id="save" value="2" name="버튼" type="submit" data-uri="#" class="btn btn-primary ml-5 mt-5"><span class="font_a">수정</span></button>
+                                       </form>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- js -->
+   <script src="/static/vendors/scripts/core.js"></script>
+   <script src="/static/vendors/scripts/script.min.js"></script>
+   <script src="/static/vendors/scripts/process.js"></script>
+   <script src="/static/vendors/scripts/layout-settings.js"></script>
+   <script src="/static/src/plugins/apexcharts/apexcharts.min.js"></script>
+   <script src="/static/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+   <script src="/static/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+   <script src="/static/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+   <script src="/static/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+   <script src="/static/vendors/scripts/dashboard.js"></script>
+         {% endblock %}

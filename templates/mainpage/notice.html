@@ -1,0 +1,132 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+ <head>
+  <meta http-equiv="Content-type" content="text/html; charset-euc-kr"/>
+  <title> table 태그에 대하여 </title>
+  <style type="text/css">
+    body{
+        font-family:"맑은 고딕";
+        font-size:0.9em;
+        color:#666;
+}
+    a{
+        text-decoration:none;
+        color:#09f;
+}
+    a:hover{
+
+        text-decoration:underline;
+}
+    caption{
+        display:none; /*안보이게 설정,
+                              화면에 보이지는 않지만 스크린리더리로 읽어짐.*/
+
+    }
+    table{
+        width:800px;
+        border-collapse:collapse;
+        border-top:2px solid #8d8d8d;
+
+}
+    th{
+        padding:10px 8px; /*padding: vertical horizontal;*/
+        background:#f9f9f9;
+        color:#666;
+        border-bottom:1px solid #8d8d8d;
+    }
+
+    td{
+        padding:10px 8px; /*padding: vertical horizontal;*/
+        text-align:center;
+        line-height:1.25em;
+        color:#666;
+        border-bottom:1px solid #8d8d8d;
+    }
+
+    td.article{ /*article 클래스가 적용된 열만 좌측 정렬*/
+        text-align:left;
+    }
+
+
+  </style>
+
+  <!--
+        <table width="400" height="300" bgcolor="#ffcc99"
+        border="1" bordercolor="#ffffff" cellpadding="10" cellspacing="0" align="center"
+        background="images/barossa_valley.jpg">
+  -->
+
+ </head>
+
+ <body>
+ <div class = "container">
+   <div class = "col container-center" >
+
+    <div class="dataTbl1" class="d-block w-100">
+      </div>
+
+        <table summary="공지사항 목록입니다.">
+
+            <!--표의 제목-->
+            <caption>공지사항</caption>
+
+            <colgroup>
+
+                <col width="10%"/>
+                <col width="10%"/>
+                <col width="*%"/>
+                <col width="20%"/>
+            </colgroup>
+
+            <!--테이블 머리말 부분-->
+            <thead>
+
+                <th scope="번호">번호</th>
+                <th scope="작성자">작성자</th>
+                <th scope="제목">제목</th>
+                <th scope="등록일">등록일</th>
+
+            </thead>
+
+            <!--테이블 내용 부분-->
+            <tbody>
+            {% if notice_list %}
+            {% for noticelist in notice_list %}
+
+                <tr>
+                    <td>{{ noticelist.notice_no }}</td>
+                    <td>{{ noticelist.n_writer }}</td>
+                    <td class="article"><a href="/main/notice2/{{ noticelist.notice_no }}">{{ noticelist.notice_title }}</a></td>
+                    <td>{{ noticelist.notice_date }}</td>
+                </tr>
+<!--                <tr>-->
+<!--                    <td>{{ noticelist.notice_no }}</td>-->
+<!--                    <td>{{ noticelist.n_writer }}</td>-->
+<!--                    <td class="article"><strong<a href="#none">{{ noticelist.notice_title }}</a></td>-->
+<!--                    <td>{{ noticelist.notice_date }}</td>-->
+<!--                </tr>-->
+
+            {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">등록된 글이 없습니다</td>
+                </tr>
+
+            {% endif %}
+            </tbody>
+
+            <!--테이블 꼬리말-->
+            <tfoot>
+
+            </tfoot>
+        </table>
+
+    </div>
+
+
+  </div>
+  </body>
+
+{% endblock %}

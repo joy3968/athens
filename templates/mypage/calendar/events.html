@@ -1,0 +1,12 @@
+{% extends 'mypage/calendar/based.html' %}
+{% block events %}
+    <div class="container">
+        <br>
+        <h1>나만의 달력</h1>
+        <div class="outer">
+            <a class="btn btn-info left" href="{% url 'calendar' %}?{{ prev_month }}"><span>이전 달</span> </a>
+            <a class="btn btn-info right" href="{% url 'calendar' %}?{{ next_month }}"><span>다음 달</span> </a>
+        </div>
+        {{calendar}}
+    </div>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">등록금 및 수업운영 시간</h1>
+    <div class="col text-center">
+    <p class="lead">각 학년 부서에 따른 수업료와 시간표</p>
+    </div>
+  </div>
+</div>
+
+<h2 class="col text-center">고등부</h2>
+<table cellspacing=1 width=700 border=0>
+</table>
+
+<div class="container" style="width : 1200px">
+<table cellspacing=1 width=700 border=1>
+
+    <tr>
+
+        <td width=20%><h4 align=center>학년</h4>
+        </td>
+        <td width=20%><h4 align=center>수업료</h4>
+        </td>
+        <td width=10%><h4 align=center>과목</h4>
+        </td>
+        <td width=20%><h4 align=center>월,수,금/시간표</h4>
+        </td>
+        <td width=10%><h4 align=center>과목</h4>
+        </td>
+        <td width=20%><h4 align=center>확,목,토/시간표</h4>
+        </td>
+    </tr>
+
+    {% if lecture_list %}
+        <ul>
+            {% for lecturelist in lecture_list %}
+            {% if lecturelist.l_dept == '중등' %}
+            <tr>
+            <td width=50><h4 align=center>중등부/{{ lecturelist.l_class }}학년</td></h4>
+            <td width=100><h4 align=center>영어:{{lecturelist.l_pay}}<br>수학:{{lecturelist.l_pay}}</td></h4>
+            <td width=320>
+                <h5 align=center>
+                    수학 <br><br>영어<br><br>수학<br>
+                </h5>
+            </td>
+            <td width=100><h5 align=center>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00</td></h4>
+            <td width=100><h5 align=center>영어<br><br>수학<br><br>영어<br></h5></td><td width=100><h5 align=center>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00</td></h4>
+            </tr>
+            {% endif %}
+            {% endfor %}
+
+        </ul>
+
+
+    {% endif %}
+
+
+</table>
+    <h2 class="col text-center">중등부</h2>
+<table cellspacing=1 width=700 border=0>
+
+</table>
+
+<table cellspacing=1 width=700 border=1>
+        <tr>
+        <td width=20%><h4 align=center>학년</h4>
+        </td>
+        <td width=20%><h4 align=center>수업료</h4>
+        </td>
+        <td width=10%><h4 align=center>과목</h4>
+        </td>
+        <td width=20%><h4 align=center>월,수,금/시간표</h4>
+        </td>
+        <td width=10%><h4 align=center>과목</h4>
+        </td>
+        <td width=20%><h4 align=center>확,목,토/시간표</h4>
+        </td>
+    </tr>
+    {% if lecture_list %}
+        <ul>
+            {% for lecturelist in lecture_list %}
+            {% if lecturelist.l_dept == '고등' %}
+            <tr>
+            <td width=50><h4 align=center>{{ lecturelist.l_dept }}부/{{ lecturelist.l_class }}학년</td></h4>
+            <td width=100><h4 align=center>영어:{{lecturelist.l_pay}}<br>수학:{{lecturelist.l_pay}}</td></h4>
+            <td width=320>
+                <h5 align=center>
+                              수학<br><br>영어<br><br>수학<br>
+                </h5>
+            </td>
+            <td width=100><h5 align=center>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00</td></h4>
+            <td width=100><h5 align=center>영어<br><br>수학<br><br>영어<br></h5></td><td width=100><h5 align=center>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00<br><br>17:50~19:50&nbsp;&nbsp;&nbsp;20:00~22:00</td></h4>
+            </tr>
+
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </ul>
+
+
+    {% endif %}
+</table>
+</div>
+
+
+
+<!--[출처] 과제1 / Django로 게시판(Board) 만들기 / 정리(1)|작성자 해피용-->
+
+
+{% endblock %}

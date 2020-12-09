@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+    <head>
+		<!-- Meta Tags -->
+		{% load static %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="Site keywords here">
+		<meta name="description" content="">
+		<meta name='copyright' content=''>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Title -->
+		<title>Eduland &minus; Education & Courses HTML5 Template</title>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="images/favicon.png">
+
+		<!-- Web Font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+
+		<link rel="stylesheet" type="text/css" href="/static/user/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/niceselect.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/jquery.fancybox.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/cube-portfolio.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/owl.carousel.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/slicknav.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/user/css/magnific-popup.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/user/css/responsive.css">
+		<link rel="stylesheet" type="text/css" href="/static/user/css/colors/color1.css">
+		{% block script %}
+		{% endblock %}
+</head>
+
+
+
+<body>
+    <header class="header">
+			<!-- Header Inner -->
+			<div class="header-inner overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-12">
+							<!-- Logo -->
+							<div class="logo">
+								<a href="base2.html"><img src="{% static 'user/athens_logo.png' %}" style="width:200px; height:100px;"></a>
+							</div>
+							<!--/ End Logo -->
+							<div class="mobile-menu"></div>
+						</div>
+						<div class="col-lg-9 col-md-9 col-12">
+							<div class="menu-bar">
+								<nav class="navbar navbar-default">
+									<div class="navbar-collapse">
+										<!-- Main Menu -->
+										<ul id="nav" class="nav menu navbar-nav">
+											<li><a href="#학원소개">학원소개</a></li>
+											<li><a href="#모집요강">모집요강</a></li>
+											<li><a href="#">수강신청</a>
+												<ul class="dropdown">
+													<li><a href="#결제">결제</a></li>
+												</ul>
+											</li>
+											<li><a href="#">커뮤니티</a>
+												<ul class="dropdown">
+													<li><a href="#공지사항">공지사항</a></li>
+													<li><a href="#자주하는질문">자주하는 질문</a></li>
+													<li><a href="#">문의하기</a></li>
+													<li><a href="#">온라인 자료</a></li>
+												</ul>
+											</li>
+											<li><a href="#">상담</a>
+												<ul class="dropdown">
+													<li><a href="#">상담예약</a></li>
+													<li><a href="#">상담취소</a></li>
+												</ul>
+											</li>
+											<li><a class="nav-link" href="/login"><button type="button" class="btn btn-success ml-3">로그인</button></a></li>
+											<li><a href="/sign"><button type="button" class="btn btn-success ml-3">회원가입</button></a></li>
+										</ul>
+										<!-- End Main Menu -->
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </header>
+		<!--/ End Header -->
+
+		{% block content %}
+		{% endblock %}
+
+		<!--/ End Clients CSS -->
+        <!--Footer-->
+		{% include "mainpage/footer.html" %}
+
+
+
+		<script src="{% static '/user/js/jquery.min.js' %}"></script>
+        <script src="{% static '/user/js/jquery-migrate.min.js' %}"></script>
+        <script src="{% static '/user/js/colors.js' %}"></script>
+        <script src="{% static '/user/js/popper.min.js' %}"></script>
+        <script src="{% static '/user/js/bootstrap.min.js' %}"></script>
+        <script src="{% static '/user/js/owl.carousel.min.js' %}"></script>
+		<script src="{% static '/user/js/jquery.stellar.min.js' %}"></script>
+		<script src="{% static '/user/js/finalcountdown.min.js' %}"></script>
+		<script src="{% static '/user/js/facnybox.min.js' %}"></script>
+		<script src="{% static '/user/js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static '/user/js/circle-progress.min.js' %}"></script>
+		<script src="{% static '/user/js/niceselect.js' %}"></script>
+        <script src="{% static '/user/js/jquery.stellar.min.js' %}"></script>
+        <script src="{% static '/user/js/cube-portfolio.min.js' %}"></script>
+        <script src="{% static '/user/js/slicknav.min.js' %}"></script>
+        <script src="{% static '/user/js/easing.min.js' %}"></script>
+        <script src="{% static '/user/js/waypoints.min.js' %}"></script>
+		<script src="{% static '/user/js/jquery.counterup.min.js' %}"></script>
+        <script src="{% static '/user/js/jquery.scrollUp.min.js' %}"></script>
+		<script src="{% static '/user/js/gmaps.min.js' %}"></script>
+        <script src="{% static '/user/js/main.js' %}"></script>
+
+</body>
+</html>

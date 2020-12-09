@@ -1,0 +1,27 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="row mb-10" style="height:100px;"></div>
+<div class="container">
+	<form action="">
+
+        <h4>제목: </h4> <div style="text-align:right"><p style="font-size : 15px;">작성 일자 : {{notice_list2.notice_date}}</p></div>
+      <br>
+        <div class="alert alert-secondary" style= "border-radius : 10px;" role="alert">
+      <h4 style="font-size : 16px;">{{ notice_list2.notice_title }}</h4>
+        </div>
+
+	  <br>
+	  <h4>본문: </h4>
+      <div class="jumbotron jumbotron-fluid mt-4" style= "border-radius : 10px;">
+    <div class="container">
+    <p class="lead">{{ notice_list2.notice_content }}</p>
+    </div>
+</div>
+  </form>
+</div>
+<div class="row mb-10" style="height:120px;"></div>
+
+{% endblock %}

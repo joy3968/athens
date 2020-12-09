@@ -1,0 +1,76 @@
+{% extends "base2.html" %}
+{% block content %}
+{% load static %}
+
+{% include "mypage/base/mypage_header.html" %}
+
+<div class="container mt-5 mb-5" style="padding : 100px 100px">
+        <div class="text-center mb-5">
+            <h1>자녀 정보 확인</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col " style="width: 50%; margin : auto;"><img src="{% static 'user/images/author1.jpg' %}" alt="" style="width:200px; height :200px;"></div>
+                <div class="col " style="width: 50%; margin : auto;">
+                    <table class="mb-5"><h2>자녀 개인정보</h2><br>
+                        <tr>
+                            <td><label>자녀 이름 : </label></td>
+                            <td><label type="text">{{ ccode.c_name }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>핸드폰 번호 : </label></td>
+                            <td><label type="text">{{ ccode.c_phone }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>학교 : </label></td>
+                            <td><label type="text">{{ ccode.c_school }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>주소 : </label></td>
+                            <td><label type="text">{{ ccode.c_add }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>생년월일 : </label></td>
+                            <td><label type="text">{{ ccode.c_birth }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                    </table>
+                </div>
+                <div class="col " style="width: 50%; margin : auto;">
+                    <table class="mb-5"><h2>자녀 수업정보</h2><br>
+                        <tr>
+                            <td><label>강의 이름 : </label></td>
+                            <td><label type="text">{{ lec_info.l_name }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>강사 이름 : </label></td>
+                            <td><label type="text">{{ teacher_info.t_name }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>강의 시작일/기간 : </label></td>
+                            <td><label type="text">{{ lec_info.l_startdate }} / {{ lec_info.l_term }}개월</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>강의 부서/학년  : </label></td>
+                            <td><label type="text">{{ lec_info.l_dept }}부 / {{ lec_info.l_class }}학년</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                        <tr>
+                            <td><label>강의 정원 : </label></td>
+                            <td><label type="text">{{ lec_info.l_totalnum }}</label></td>
+                        </tr>
+                        <tr><td><label></label></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

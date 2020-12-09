@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>강사 이메일찾기</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <style>
+            div.join_btn {
+            float: left;
+            padding: 1px;
+            width: 20%;
+            height: 7%;
+            position: relative; left: 20%;
+            }
+            div.find_btn {
+
+            padding: 20px;
+            width: 40%;
+            height: 10%;
+            position: relative; left: 30%;
+            }
+            div.header {
+            width: 75%;
+            height: 75%;
+            position: relative; left: 14%;
+            padding:10%;
+
+            }
+            div.border {
+            border: solid black;
+            width: 75%;
+            height: 75%;
+            min-height: 400px;
+            position: relative; left: 14%;
+            padding:10%;
+            }
+
+            #wrap {
+            width: 100%;
+            height: 100%;
+            }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="wrap" class="text-center">
+        <div class="header">
+            <h1>강사 이메일찾기</h1>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 panel panel-default">
+                    <small>
+                        가입하실 때 작성한 휴대폰 번호와 이름을 입력해주세요.
+                    </small>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="find_btn">
+                            <button type = "submint" class="btn btn-primary btn-sm" id="find_id" name="recovery_id">이메일찾기</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="join_btn">
+                    <a href="/login/login"><button type="button" class="btn btn-primary btn-sm">로그인</button></a>
+                </div>
+                <div class="join_btn">
+                    <a href="/sign"><button type="button" class="btn btn-primary btn-sm">회원가입</button></a>
+                </div>
+                <div class="join_btn">
+                    <a href="/find/pw_find"><button type="button" class="btn btn-primary btn-sm">PW찾기</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-left col"><a href="/find">
+            <h8>돌아가기</h8></a></div>
+    </div>
+</div>
+</body>
+
+
+</html>
+

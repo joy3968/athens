@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plus.css' %}">
+</head>
+
+<body>
+<div class="container">
+    <div id="wrap" class="text-center">
+        <div class="border">
+            <div class="top-logo">
+                <div class="logo">아테나 로그인 로고</div>
+            </div>
+        </div>
+        <div class="border">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 panel panel-default">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                        {{form.as_p}}
+                        </div>
+                        <button type="submit" class="btn btn-success">로그인</button>
+                    </form>
+                </div>
+            </div>
+            <div class="join_btn">
+                <button type="button" class="btn btn-primary btn-sm">회원가입</button>
+            </div>
+            <div class="join_btn">
+                <button type="button" class="btn btn-primary btn-sm">이메일찾기</button>
+            </div>
+            <div class="join_btn">
+                <button type="button" class="btn btn-primary btn-sm">PW찾기</button>
+            </div>
+        </div>
+    </div>
+    <div class="foot_border">
+        <div id="footer">
+            <h1>Footer</h1>
+        </div>
+    </div>
+</div>
+</body>

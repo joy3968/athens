@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+
+{% include "mypage/base/mypage_header.html" %}
+
+<!-- 본인인증 -->
+<div class="container mt-5 mb-5">
+    <div class="text-center">
+        <h1>본인인증 확인</h1>
+        <h6 class="mt-5">비밀번호를 입력해주세요.</h6>
+    </div>
+</div>
+
+<!-- 비밀번호 입력 -->
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col"></div>
+            <div class="col col_btn">
+                <div class="input-group mt-4">
+                    <input name='passwd' type="password" placeholder="비밀번호를 입력하세요." style="width:300px;" id="checkpw" >
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group-append mt-3">
+                    <input type="submit" class="btn btn-primary" value="확인">
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </form>
+</div>
+{% endblock %}

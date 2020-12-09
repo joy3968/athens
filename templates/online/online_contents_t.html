@@ -1,0 +1,53 @@
+{% extends 'teacherbase.html' %}
+
+{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <script>
+      function del(){
+        if (confirm("삭제하시겠습니까?")){
+          document.form1.action="delete";
+          document.form1.submit();
+        }
+      }
+  </script>
+</head>
+<div style="margin-top:50px; margin-left:200px">
+  <h1>온라인자료</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">강의</th>
+        <th scope="col">{{content.l_no.l_name}}</th>
+      </tr>
+      <tr>
+        <th scope="col">제목</th>
+        <th scope="col">{{content.on_title}}</th>
+      </tr>
+      <tr>
+        <th scope="col" style="vertical-align:middle">구분</th>
+        <th scope="col">{{content.on_div}}</th>
+      </tr>
+      <tr>
+        <th scope="col">첨부파일</th>
+        {% if fsize > 0 %}
+        <th scope="col"><a href="download?on_no={{content.on_no}}">{{fname}}, {{fsize}}KB</a></th>
+        {% endif %}
+      </tr>
+      <tr>
+        <th scope="col" style="vertical-align:top">내용</th>
+        <th scope="col">{{content.on_content}}</th>
+      </tr>
+    </thead>
+  </table>
+  <button style="display:inline-block" name="button" class="btn btn-success" onclick="location.href='update?on_no={{content.on_no}}'">수정</button>
+  <form style="display:inline-block" name="form1" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="on_no" value="{{content.on_no}}">
+  <button type="submit" class="btn btn-danger" onclick="del()">삭제</button>
+  </form>
+  <button style="display:inline-block; float:right;" name="button" class="btn btn-secondary" onclick="location.href='/teacher/select/lecture/online/'">목록</button>
+</div>
+
+
+{% endblock %}

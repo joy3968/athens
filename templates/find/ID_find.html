@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>이메일찾기</title>
+    <link rel="stylesheet" type="text/css" href="/static/'bootstrap.min.css'">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+            div.join_btn {
+            float: left;
+            padding: 1px;
+            width: 20%;
+            height: 7%;
+            position: relative; left: 20%;
+            }
+    </style>
+</head>
+<body>
+
+ {% csrf_token %}
+    <label name="label_c_name" for="{{ form_id.c_name.id_for_label }}">{{ form.c_name.label }}</label>
+    {{ form.c_name }}
+    <label name="label_c_phone" for="{{ form_id.c_phone.id_for_label }}">{{ form.c_phone.label }}</label>
+    {{ form.c_phone }}
+    <small>
+        등록하신 이름과 전화번호가 일치해야 합니다.
+    </small>
+    <div>
+        <button id="find_id" name="recovery_id">이메일찾기</button>
+    </div>
+
+    <div id="result_id"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#find_id').click(function () {
+                var c_name = $("#form_c_name").val();
+                var c_phone = $("#form_c_phone").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "/find/",
+                    dataType: "json",
+                    data: {
+                        'c_name': c_name,
+                        'c_phone': c_phone,
+                        'csrfmiddlewaretoken': '{{csrf_token}}',
+                    },
+                    success: function (response) {
+                        $('#result_id').replaceWith(
+                            '<div id="result_id"><hr><div><span>입력된 정보로 가입된 계정은 </span><span id="result_id">' +
+                                response.result_id +'</span><span> 입니다.</span></div><hr></div>')
+                    },
+                    error: function () {
+                        if (c_name == "" || c_phone == "") {
+                            alert('이름와 전화번호를 입력해주세요.');
+                        } else {
+                            alert('입력하신 정보가 일치하지 않거나 존재하지 않습니다.');
+                        }
+                    },
+                });
+            })
+        });
+    </script>
+
+<div class="join_btn">
+   <a href="/login"><button type="button" class="btn btn-primary btn-sm">로그인</button></a>
+</div>
+<div class="join_btn">
+   <a href="/sign"><button type="button" class="btn btn-primary btn-sm">회원가입</button></a>
+</div>
+<div class="join_btn">
+   <a href="/find/pw_find"><button type="button" class="btn btn-primary btn-sm">PW찾기</button></a>
+</div>
+
+</body>
+</html>
+

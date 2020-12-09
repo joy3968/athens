@@ -1,0 +1,119 @@
+{% extends 'base2.html' %}
+{% block content %}
+{% load static %}
+<!-- Faqs -->
+      <section class="faqs section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 offset-lg-3 col-12">
+                  <div class="section-title bg">
+                     <h2>자주 하는 질문</h2>
+                     <div class="icon"><i class="fa fa-question"></i></div>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-5"></div>
+                <div class="col-lg-12 col-12" >
+                    <div class="faq-main" >
+                     <div class="faq-content">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {% if faq_list %}
+                            {% for faqlist in faq_list %}
+                            {% if faqlist.faq_no == 1 %}
+                           <!-- Single Faq -->
+                           <div class="panel panel-default">
+                              <div class="faq-heading"  id="FaqTitle1">
+                                 <h4 class="faq-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq1"><i class="fa fa-question"></i>질문.{{faqlist.faq_no}}&nbsp;:&nbsp;{{ faqlist.faq_question}}</a>
+                                 </h4>
+                              </div>
+                              <div id="faq1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="FaqTitle1">
+                                 <div class="faq-body">질문 답변&nbsp;:&nbsp;{{ faqlist.faq_answer }}</div>
+                              </div>
+                           </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                           <!--/ End Single Faq -->
+                           <!-- Single Faq -->
+                            {% if faq_list %}
+                            {% for faqlist in faq_list %}
+                            {% if faqlist.faq_no == 2 %}
+                           <div class="panel panel-default active">
+                              <div class="faq-heading"  id="FaqTitle2">
+                                 <h4 class="faq-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq2"><i class="fa fa-question"></i>질문.{{faqlist.faq_no}}&nbsp;:&nbsp;{{ faqlist.faq_question}}</a>
+                                 </h4>
+                              </div>
+                              <div id="faq2" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="FaqTitle2">
+                                 <div class="faq-body">질문 답변&nbsp;:&nbsp;{{ faqlist.faq_answer }}</div>
+                              </div>
+                           </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                           <!--/ End Single Faq -->
+                           <!-- Single Faq -->
+                           {% if faq_list %}
+                            {% for faqlist in faq_list %}
+                            {% if faqlist.faq_no == 3 %}
+                           <div class="panel panel-default active">
+                              <div class="faq-heading"  id="FaqTitle3">
+                                 <h4 class="faq-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq3"><i class="fa fa-question"></i>질문.{{faqlist.faq_no}}&nbsp;:&nbsp;{{ faqlist.faq_question}}</a>
+                                 </h4>
+                              </div>
+                              <div id="faq3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="FaqTitle2">
+                                 <div class="faq-body">질문 답변&nbsp;:&nbsp;{{ faqlist.faq_answer }}</div>
+                              </div>
+                           </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                           <!--/ End Single Faq -->
+                           <!-- Single Faq -->
+                            {% if faq_list %}
+                            {% for faqlist in faq_list %}
+                            {% if faqlist.faq_no == 4 %}
+                           <div class="panel panel-default active">
+                              <div class="faq-heading"  id="FaqTitle4">
+                                 <h4 class="faq-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq4"><i class="fa fa-question"></i>질문.{{faqlist.faq_no}}&nbsp;:&nbsp;{{ faqlist.faq_question}}</a>
+                                 </h4>
+                              </div>
+                              <div id="faq4" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="FaqTitle2">
+                                 <div class="faq-body">질문 답변&nbsp;:&nbsp;{{ faqlist.faq_answer }}</div>
+                              </div>
+                           </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+
+                            {% if faq_list %}
+                            {% for faqlist in faq_list %}
+                            {% if faqlist.faq_no == 5 %}
+                           <div class="panel panel-default active">
+                              <div class="faq-heading"  id="FaqTitle5">
+                                 <h4 class="faq-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#faq5"><i class="fa fa-question"></i>질문.{{faqlist.faq_no}}&nbsp;:&nbsp;{{ faqlist.faq_question}}</a>
+                                 </h4>
+                              </div>
+                              <div id="faq5" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="FaqTitle2">
+                                 <div class="faq-body">질문 답변&nbsp;:&nbsp;{{ faqlist.faq_answer }}</div>
+                              </div>
+                           </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                           <!--/ End Single Faq -->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--/ End Blogs -->
+
+ {% endblock %}

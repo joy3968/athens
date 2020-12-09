@@ -1,0 +1,40 @@
+{% extends 'base2.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="padding : 100px 0px;">
+  <h1 class="mb-5">온라인 자료실</h1>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-lg-10">
+      <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">강의명</th>
+        <th scope="col">학년</th>
+        <th scope="col">부서</th>
+        <th scope="col">시작일</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if lecturelist %}
+      {% for lecture in lecturelist %}
+        <tr onclick="location.href='/main/online/{{lecture.pk}}'">
+          <th scope="row" style="width:15%">{{lecture.l_name}}</th>
+          <td style="width:15%">{{lecture.l_class}}</td>
+          <td style="width:35%">{{lecture.l_dept}}</td>
+          <td style="width:35%">{{lecture.l_startdate}}</td>
+        </tr>
+      {% endfor %}
+      {% else %}
+        <tr>
+          <td>등록된 강의가 없습니다.</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+{% endblock %}
